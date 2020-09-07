@@ -4,7 +4,7 @@ source $HOME/404Box/config
 
 choose_module() {
 
-clear && toilet -F border 404Box && echo
+echo -e $green && clear && toilet -F border 404Box && echo
 echo -e $cyan"Create By: $author${green}"
 echo -e "Github: ${cyan}https://github.com/RetroSec/"
 echo -e $red"Youtube: $yt\n$green"
@@ -62,7 +62,7 @@ echo -e $green"[${red}6$green] ${red}ErrorSQLi"
 echo -e $green"[${red}7$green] ${red}Credits"
 echo -e $green"[${red}99$green] ${red}Exit\n${green}"
 
-read -p "Dooper:> " opt
+read -p "404Box:> " opt
 
 if [ $opt == "1" ]; then 
 
