@@ -127,7 +127,7 @@ echo -e $green"[${red}6$green] ${red}ErrorSQLi"
 echo -e $green"[${red}7$green] ${red}Credits"
 echo -e $green"[${red}99$green] ${red}Exit\n${green}"
 
-read -p "Dooper:> " opt
+read -p "404Box:> " opt
 
 if [ $opt == "1" ]; then 
 
