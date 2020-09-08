@@ -265,6 +265,90 @@ fi
 
 }
 
+geo_other() {
+
+echo -e $green && clear && toilet -F border IP GEO && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+read -p "Target IP:> " gip 
+
+echo -e $cyan${blink}"\nJust a moment... just a few minute\n${reset}"
+
+geo="curl -s https://ipapi.co/$gip/json/"
+
+ip=`( $geo | jq '.ip' )`
+city=`( $geo | jq '.city')`
+region=`( $geo | jq '.country_name')`
+country_code=`( $geo | jq '.country_code' )`
+zipcode=`( $geo | jq '.postal')`
+latitude=`( $geo | jq '.latitude')`
+longitude=`( $geo | jq '.longitude')`
+currency=`( $geo | jq '.currency')`
+timezone=`( $geo | jq '.timezone')`
+calling_code=`( $geo | jq '.country_calling_code')`
+isp=`( $geo | jq '.org')`
+
+echo -e $cyan":: ${yellow}Your Information $cyan::\n"
+
+echo -e $green"[$red+$green]$yellow IP : ${green}$ip"
+echo -e $green"[$red+$green]$yellow Country : ${green}$region || $country_code"
+echo -e $green"[$red+$green]$yellow City : ${green}$city"
+echo -e $green"[$red+$green]$yellow Currency : ${green}$currency"
+echo -e $green"[$red+$green]$yellow Calling Code : ${green}$calling_code"
+echo -e $green"[$red+$green]$yellow Zip Code: ${green}$zipcode"
+echo -e $green"[$red+$green]$yellow Latitude : ${green}$latitude"
+echo -e $green"[$red+$green]$yellow Longitude : ${green}$longitude"
+echo -e $green"[$red+$green]$yellow Timezone : ${green}$timezone"
+echo -e $green"[$red+$green]$yellow ISP : ${green}$isp"
+
+echo && back_module
+
+}
+
+geo_other_t() {
+
+echo -e $green && clear && toilet -F border IP GEO && echo
+echo -e $cyan"Create By: $author${green}"
+echo -e "Github: ${cyan}https://github.com/RetroSec/"
+echo -e $red"Youtube: $yt\n$green"
+
+read -p "Target IP:> " gip 
+
+echo -e $cyan${blink}"\nJust a moment... just a few minute\n${reset}"
+
+geo="curl -s https://ipapi.co/$gip/json/"
+
+ip=`( $geo | jq '.ip' )`
+city=`( $geo | jq '.city')`
+region=`( $geo | jq '.country_name')`
+country_code=`( $geo | jq '.country_code' )`
+zipcode=`( $geo | jq '.postal')`
+latitude=`( $geo | jq '.latitude')`
+longitude=`( $geo | jq '.longitude')`
+currency=`( $geo | jq '.currency')`
+timezone=`( $geo | jq '.timezone')`
+calling_code=`( $geo | jq '.country_calling_code')`
+isp=`( $geo | jq '.org')`
+
+echo -e $cyan":: ${yellow}Your Information $cyan::\n"
+
+echo -e $green"[$red+$green]$yellow IP : ${green}$ip"
+echo -e $green"[$red+$green]$yellow Country : ${green}$region || $country_code"
+echo -e $green"[$red+$green]$yellow City : ${green}$city"
+echo -e $green"[$red+$green]$yellow Currency : ${green}$currency"
+echo -e $green"[$red+$green]$yellow Calling Code : ${green}$calling_code"
+echo -e $green"[$red+$green]$yellow Zip Code: ${green}$zipcode"
+echo -e $green"[$red+$green]$yellow Latitude : ${green}$latitude"
+echo -e $green"[$red+$green]$yellow Longitude : ${green}$longitude"
+echo -e $green"[$red+$green]$yellow Timezone : ${green}$timezone"
+echo -e $green"[$red+$green]$yellow ISP : ${green}$isp"
+
+echo && back_module_t
+
+}
+
 geo_self() {
 
 clear && toilet -F border IP GEO | lolcat && echo
